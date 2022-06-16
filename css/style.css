@@ -1,0 +1,341 @@
+nav {
+  margin: 27px auto 0;
+  position: relative;
+  width: 590px;
+  height: 50px;
+  background-color: #34495e;
+  border-radius: 8px;
+  font-size: 0;
+}
+nav a {
+  line-height: 50px;
+  height: 100%;
+  font-size: 15px;
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+}
+nav .animation {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  z-index: 0;
+  transition: all .5s ease 0s;
+  border-radius: 8px;
+}
+a:nth-child(1) {
+  width: 100px;
+}
+a:nth-child(2) {
+  width: 110px;
+}
+a:nth-child(3) {
+  width: 100px;
+}
+a:nth-child(4) {
+  width: 160px;
+}
+a:nth-child(5) {
+  width: 120px;
+}
+nav .start-home, a:nth-child(1):hover~.animation {
+  width: 100px;
+  left: 0;
+  background-color: #1abc9c;
+}
+nav .start-about, a:nth-child(2):hover~.animation {
+  width: 110px;
+  left: 100px;
+  background-color: #e74c3c;
+}
+nav .start-blog, a:nth-child(3):hover~.animation {
+  width: 100px;
+  left: 210px;
+  background-color: #3498db;
+}
+nav .start-portefolio, a:nth-child(4):hover~.animation {
+  width: 160px;
+  left: 310px;
+  background-color: #9b59b6;
+}
+nav .start-contact, a:nth-child(5):hover~.animation {
+  width: 120px;
+  left: 470px;
+  background-color: #e67e22;
+}
+
+body {
+  font-size: 12px;
+  font-family: sans-serif;
+  background: #2c3e50;
+}
+
+h1 {
+  text-align: center;
+  margin: 40px 0 40px;
+  text-align: center;
+  font-size: 30px;
+  color: #ecf0f1;
+  text-shadow: 2px 2px 4px #000000;
+  font-family: 'Cherry Swash', cursive;
+}
+
+/*main*/
+
+.title {
+  width: 100%;
+  color: #ecf0f1;
+  font-family: 'Cherry Swash',cursive;
+  font-size: 36px;
+  text-align: center;
+}
+
+.title h2:hover {
+  color:#4dacff;
+  transition: 1.0s;
+}
+
+.title p:hover {
+  color:#4dacff;
+  transition: 1.0s;
+}
+
+.title path:hover {
+  color:#4dacff;
+  transition: 1.0s;
+}
+
+/* アバウトページ */
+.about {
+  text-align: center;
+  margin-top: 30px;
+}
+
+#langChenge input[type="radio"]{
+  display    : none;
+}
+ 
+ /* === 各ラジオボタンのラベルをボタンに変更 == */
+#langChenge label{
+  display    : inline-block;
+  border     : 1px solid #ccc;
+  border-radius: 20px;
+  padding    : 5px 10px;
+  background-color: #ecf0f1;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+ 
+ /* === 選択されていない言語は非表示にする ==== */
+#langJa:not(:checked) ~ * *:lang(ja) {
+  display    : none;
+}
+
+#langEn:not(:checked) ~ * *:lang(en) {
+  display    : none;
+}
+ 
+ /* === 選択されている言語のラベル色を変更 ==== */
+#langJa:checked ~ label[for="langJa"] {
+  background : #4dacff;
+}
+#langEn:checked ~ label[for="langEn"] {
+  background : #4dacff;
+}
+
+.about_text {
+  color: #ecf0f1;
+  font-family: 'Cherry Swash',cursive;
+  font-size: 20px;
+}
+
+/* ポートフォリオページ */
+/* .portfolio_list_item {
+  border: 3px solid #0f1010;
+} */
+.portfolio_list {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.portfolio_list_item {
+  width: 30%;
+  margin: 0px 20px 80px 20px;
+}
+
+.portfolio_list_item img {
+  width: 100%;
+  cursor: pointer;
+}
+/*モーダル本体の指定 + モーダル外側の背景の指定*/
+.modal-window {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background: rgba(0,0,0,60%);
+	padding: 40px 20px;
+	overflow: auto;
+	opacity: 0;
+	visibility: hidden;
+	transition: .3s;
+  box-sizing: border-box;
+}
+/*モーダル本体の擬似要素の指定*/
+.modal-window:before {
+	content: "";
+	display: inline-block;
+	vertical-align: middle;
+	height: 100%;
+}
+/*モーダル本体に「active」クラス付与した時のスタイル*/
+.modal-window.active {
+	opacity: 1;
+	visibility: visible;
+}
+/*モーダル枠の指定*/
+.modal-body {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 500px;
+	width: 90%;
+}
+/*モーダルを閉じるボタンの指定*/
+.modal-close {
+	position: absolute;
+	display: flex;
+  align-items: center;
+  justify-content: center;
+	top: -40px;
+	right: -40px;
+	width: 40px;
+	height: 40px;
+	font-size: 40px;
+	color: #fff;
+	cursor: pointer;
+}
+/*モーダル内のコンテンツの指定*/
+.modal-content {
+	background: #fff;
+	text-align: left;
+	padding: 30px;
+}
+
+/* プロフィールページ */
+
+.profile {
+  display: flex;
+}
+
+.profile-item {
+  width: 50%;
+  color: #ecf0f1;
+  font-family: 'Cherry Swash',cursive;
+  text-align: center;
+}
+.myname {
+  font-size: 20px;
+}
+
+.introduce {
+}
+
+.profile-contents {
+  margin-top: 30px;
+}
+
+.profile-link {
+  margin-top: 30px;
+  font-size: 18px;
+}
+
+.profile-link a:link {
+  color: #ecf0f1;
+}
+
+.profile-link a:visited {
+  color: #2BD6B4;
+}
+
+.profile-img {
+  width: 300px;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.footer_logo {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: #ecf0f1;
+  font-family: 'Cherry Swash',cursive;
+  font-size: 16px;
+}
+
+.footer_logo_pf {
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  color: #ecf0f1;
+  font-family: 'Cherry Swash',cursive;
+  font-size: 16px;
+}
+
+.footer_color {
+  color: #2BD6B4;
+}
+
+/* レスポンシブ対応 */
+@media (max-width:425px) {
+  
+  .title {
+    font-size: 20px;
+  }
+  
+  nav {
+    display: none;
+  }
+
+  /* ポートフォリオページ（レスポンシブ） */
+  .portfolio_list {
+    text-align: center;
+    display: inline-block;
+  }
+
+  .portfolio_list_item {
+    width: 80%;
+  }
+
+  /* プロフィールページ（レスポンシブ） */
+  .profile {
+    display: inline-block;
+  }
+
+  .profile-item {
+    width: 100%;
+    color: #ecf0f1;
+    font-family: 'Cherry Swash',cursive;
+    text-align: center;
+  }
+
+  .profile-img {
+    width: 100%;
+    border-radius: 10px;
+    margin-top: 30px;
+  }
+
+  .pc-br {
+    display: none;
+  }
+
+}
